@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OnCampus Update</title>
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <div>
+      <div class="contain-box">
+        <div class="box"><div class="eye">0</div></div>
+        <div class="box"><div class="eye">0</div></div>
+      </div>
+
+      <div class="welcome"><h1>Tell people what's going on!</h1></div>
+
+      <div class="btndiv">
+        <i class="fas fa-arrow-down"></i>
+
+        <button class="btn">create an account</button>
+      </div>
+
+      <!-- Register & Login -->
+      <div class="form-container">
+        <!-- <div class="card-container"></div> -->
+        <div class="card-container">
+          <div class="card">
+            <div class="card-inner">
+              <!-- Login Card -->
+              <div class="card-face login-card">
+                <h2>Login</h2>
+                <form id="loginValidateForm">
+                  <label for="email">Email:</label>
+                  <input
+                    class="input"
+                    type="email"
+                    id="logEmail"
+                    name="email"
+                    required
+                  />
+
+                  <label for="password">Password:</label>
+                  <input
+                    class="input"
+                    type="password"
+                    id="logPassword"
+                    name="password"
+                    required
+                  />
+
+                  <button class="sbtBtn" type="submit">
+                    Sign-In
+                    <div class="loading">
+                      <div class="loader"></div>
+                      <!-- <p>Loading...</p> -->
+                    </div>
+                  </button>
+                </form>
+                <span>
+                  Don't have an account?
+                  <div class="toggle-button" id="toggleCard">Sign-Up Here</div>
+                </span>
+              </div>
+
+              <!-- Signup Card -->
+              <div class="card-face signup-card">
+                <h2>Sign Up</h2>
+                <form id="registerValidateForm">
+                  <label for="username">Username:</label>
+                  <input
+                    class="input"
+                    type="text"
+                    id="username"
+                    name="username"
+                    required
+                  />
+
+                  <label for="email">Email:</label>
+                  <input
+                    class="input"
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                  />
+
+                  <label for="password">Password:</label>
+                  <input
+                    class="input"
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                  />
+
+                  <button class="sbtBtn" type="submit">
+                    Register
+                    <div class="loading">
+                      <div class="loader"></div>
+                      <!-- <p>Loading...</p> -->
+                    </div>
+                  </button>
+                </form>
+                <span>
+                  Already a member?
+                  <div class="toggle-button" id="toggleCard">Sign-In Here</div>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./src/script.js"></script>
+  </body>
+</html>
