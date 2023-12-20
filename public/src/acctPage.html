@@ -103,10 +103,23 @@
 
       <div class="displayForm">
         <form type="submit" class="form">
-          <input type="file" />
-          <input type="text" placeholder="title" />
-          <textarea name="" id="" cols="30" rows="10"></textarea>
-          <input type="submit" placeholder="Post" />
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <input class="file" type="file" placeholder="upload image" />
+          <input type="text" class="text" placeholder="title" />
+          <textarea
+            class="textarea"
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+          ></textarea>
+          <button class="sbtBtn" type="submit">
+            Post Now
+            <div class="loading">
+              <div class="loader"></div>
+              <!-- <p>Loading...</p> -->
+            </div>
+          </button>
         </form>
       </div>
     </div>
