@@ -142,12 +142,27 @@
   width: 100%;
   object-fit: cover;
 }
-
+hr {
+  border: 2px solid;
+  width: 100%;
+}
+.socials .fa:active {
+  color: red;
+}
+.socials .fa {
+  padding: 0 30px;
+  color: #fff;
+  font-size: 1.8rem;
+  background: transparent;
+  text-shadow: 0 2px 5px #000000;
+  cursor: pointer;
+}
+.fa-heart.color {
+  color: red;
+}
 .socials {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-
+  justify-content: space-between;
   margin: 10px auto;
 }
 .displayForm.show {

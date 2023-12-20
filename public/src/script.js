@@ -2,12 +2,15 @@ const toggleCard = document.querySelectorAll("#toggleCard");
 const btn = document.querySelector(".btn");
 const displayCard = document.querySelector(".form-container");
 const sbtBtn = document.querySelectorAll(".sbtBtn");
-
+const arrowBack = document.querySelector(".fa-arrow-left");
 // display overlay of register page
 btn.addEventListener("click", () => {
   if (displayCard.classList.contains("form-container")) {
     displayCard.classList.toggle("display-form");
   }
+});
+arrowBack.addEventListener("click", () => {
+  displayCard.classList.toggle("display-form");
 });
 
 // flipping card to register or login pages
@@ -37,11 +40,11 @@ sbtBtn.forEach((btn) => {
 const registerValidateForm = document.querySelector("#registerValidateForm");
 const loginValidateForm = document.querySelector("#loginValidateForm");
 
-const username = document.getElementById("username").value.trim();
-const email = document.getElementById("email").value.trim();
-const password = document.getElementById("password").value.trim();
-
 registerValidateForm.addEventListener("submit", async (e) => {
+  const username = document.getElementById("username").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+
   e.preventDefault();
   const response = await fetch("http://localhost:4000/oncampus/register", {
     method: "POST",
@@ -50,25 +53,25 @@ registerValidateForm.addEventListener("submit", async (e) => {
     credentials: "include",
   });
 
-  if (response.status === 200) {
-    window.location.assign("acctPage.html");
+  if (response.status === 201) {
     alert("Successfully Registered!");
+    window.location.assign("./src/acctPage.html");
     response.json().then((data) => console.log(data));
   } else {
     alert("Registration failed! Try again.");
-    response.json().catch((error) => console.log(error));
+    response.json().catch((error) => console.log(error.data));
     return;
   }
 
-  username.value = "";
-  email.value = "";
-  password.value = "";
+  // username.value = "";
+  // email.value = "";
+  // password.value = "";
 });
 
-// const email = document.getElementById("logEmail").value;
-// const password = document.getElementById("logPassword").value;
-
 loginValidateForm.addEventListener("submit", async (e) => {
+  const email = document.getElementById("logEmail").value.trim();
+  const password = document.getElementById("logPassword").value.trim();
+
   e.preventDefault();
   const response = await fetch("http://localhost:4000/oncampus/login", {
     method: "POST",
@@ -77,13 +80,13 @@ loginValidateForm.addEventListener("submit", async (e) => {
     credentials: "include",
   });
   if (response.ok) {
-    window.location.assign("acctPage.html");
+    window.location.assign("./src/acctPage.html");
     response.json().then((data) => console.log(data));
   } else {
     response.json().catch((error) => console.log(error));
     alert("Invalid login details");
     return;
   }
-  email.value = "";
-  password.value = "";
+  // email.value = "";
+  // password.value = "";
 });

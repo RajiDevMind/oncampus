@@ -11,3 +11,9 @@ const displayForm = document.querySelector(".displayForm");
 postBtn.addEventListener("click", () => {
   displayForm.classList.toggle("show");
 });
+
+// change love color while user click
+const love = document.querySelector(".fa-heart");
+love.addEventListener("click", () => {
+  love.classList.toggle("color");
+});

@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Profile</title>
+    <!-- Font awesome icon cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="./acctPage.css" />
     <link rel="stylesheet" href="../src/styles.css" />
   </head>
@@ -43,9 +48,9 @@
         <div class="post-container">
           <img src="./images/profile.jpg" alt="Post Image" />
           <div class="story">
-            <h4>Title here</h4>
+            <h4 class="title">Title here</h4>
             <div class="desc">
-              <p>
+              <p class="text">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam
                 earum cum rem sunt. Debitis vero dolores distinctio non error
                 expedita corrupti nemo, quod autem temporibus explicabo in
@@ -54,7 +59,13 @@
               </p>
             </div>
           </div>
-          <div class="socials">(0) (0)</div>
+          <hr />
+
+          <div class="socials">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <i class="fa fa-comment" aria-hidden="true"></i>
+            <i class="fa fa-share-square" aria-hidden="true"></i>
+          </div>
         </div>
         <div class="post-container">
           <img src="./images/profile.jpg" alt="Post Image" />
