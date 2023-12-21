@@ -62,10 +62,7 @@ registerValidateForm.addEventListener("submit", async (e) => {
     response.json().catch((error) => console.log(error.data));
     return;
   }
-
-  // username.value = "";
-  // email.value = "";
-  // password.value = "";
+  e.currentTarget.reset();
 });
 
 loginValidateForm.addEventListener("submit", async (e) => {
@@ -87,6 +84,5 @@ loginValidateForm.addEventListener("submit", async (e) => {
     alert("Invalid login details");
     return;
   }
-  // email.value = "";
-  // password.value = "";
+  e.currentTarget.reset();
 });

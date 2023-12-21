@@ -172,10 +172,61 @@ hr {
   display: none;
   position: absolute;
   top: 100px;
-  left: 50px;
+  left: 0;
+  width: 50%;
   background: #ccc;
-  width: 80%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px #000000;
+}
+.fa-times {
+  font-size: 20px;
+  color: #fff;
+  text-shadow: 0 2px 5px #000000;
+  transition: 1s ease;
+  width: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.fa-times:hover {
+  transform: rotate(180deg);
+  color: red;
 }
 .form {
   margin: 0 auto;
+}
+.form input,
+.textarea {
+  height: 40px;
+  margin-top: 10px;
+  border: 2px solid #1e30b5;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 0 8px;
+}
+.form .submit {
+  cursor: pointer;
+}
+.form .submit:hover {
+  background: #ccc;
+}
+.form .submit:focus {
+  border: 2px solid green;
+}
+.form .textarea {
+  min-height: 250px;
+}
+.alert {
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 8px;
+  margin-top: 5px;
+}
+.alert-danger {
+  color: #721c24;
+  background: #f8d7da;
+}
+.alert-success {
+  color: #155724;
+  background: #d4edda;
 }

@@ -28,7 +28,7 @@
               <img src="./images/profile.jpg" alt="user profile image" />
             </div>
             <div class="details">
-              <h2 class="name">Username here</h2>
+              <h2 class="name"></h2>
               <h4 class="school">Institution anem Here</h4>
             </div>
             <button class="btn">Edit Profile</button>
@@ -103,10 +103,25 @@
 
       <div class="displayForm">
         <form type="submit" class="form">
-          <input type="file" />
-          <input type="text" placeholder="title" />
-          <textarea name="" id="" cols="30" rows="10"></textarea>
-          <input type="submit" placeholder="Post" />
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <input class="file" type="file" name="image" multiple />
+          <div class="image-preview"></div>
+          <input type="text" class="text" name="title" placeholder="title" />
+          <textarea
+            class="textarea"
+            name="textarea"
+            id=""
+            cols="30"
+            rows="10"
+          ></textarea>
+          <p class="alert"></p>
+          <button class="sbtBtn" type="submit">
+            Post Now
+            <div class="loading">
+              <div class="loader"></div>
+              <!-- <p>Loading...</p> -->
+            </div>
+          </button>
         </form>
       </div>
     </div>

@@ -3,34 +3,8 @@ const User = require("../models/user");
 const { StatusCodes } = require("http-status-codes");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const nodemailer = require("nodemailer");
 const { createCustomError } = require("../errors/custom-error");
-
-// sending notification on register
-function sendEmailNotification(username, email) {
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: "omoiyaalasso@gmail.com",
-      pass: "0051986550",
-    },
-  });
-
-  const mailOptions = {
-    from: "omoiyaalasso@gmail.com",
-    to: email,
-    subject: "Successfully Registered! You joined the big man team",
-    text: `Hello ${username},\n\nThank you for registering!\n\n You have join the winning team. Kindly update your profile and post regularly to recieve a reward from our team`,
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error(error);
-    } else {
-      console.log("Email sent: " + info.response);
-    }
-  });
-}
+const sendEmailNotification = require("../utils/sendMail");
 
 const register = async (req, res, next) => {
   const { username, email, password } = req.body;
@@ -73,23 +47,23 @@ const register = async (req, res, next) => {
   }
 };
 
-const login = async (req, res) => {
+const login = async (req, res, next) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    throw new createCustomError("Kindly provide valid email and password?");
+    return next(createCustomError("Kindly provide valid email and password?"));
   }
 
   const user = await User.findOne({ email });
   if (!user) {
-    throw new createCustomError("Invalid details!");
+    return next(createCustomError("Invalid Email!", 400));
   }
 
   // compare password
   const validPassword = bcrypt.compareSync(password, user.password);
   if (!validPassword) {
     // res.status(422).json("Invalid Password!");
-    throw new createCustomError("Invalid password");
+    return next(createCustomError("Invalid password", 400));
   }
   try {
     const token = jwt.sign(
@@ -124,6 +98,7 @@ const profile = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
 module.exports = {
   register,
   login,
